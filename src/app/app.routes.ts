@@ -1,4 +1,14 @@
 import { Routes } from '@angular/router';
-import { BlocksComponent } from './components/primeblocks/blocks/blocks.component';
+// import { BlocksComponent } from './components/primeblocks/blocks/blocks.component';
 
-export const routes: Routes = [{ path: '', component: BlocksComponent }];
+export const routes: Routes = [
+  // { path: 'blocks', component: BlocksComponent },
+  // { path: '**', redirectTo: '' },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./components/landing/landing.module').then(
+        (m) => m.LandingModule
+      ),
+  },
+];
