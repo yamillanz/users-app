@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "poc-a17-primeng": {
+    "fi-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/poc-a17-primeng",
+            "outputPath": "dist/fi-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "poc-a17-primeng:build:production"
+              "buildTarget": "fi-app:build:production"
             },
             "development": {
-              "buildTarget": "poc-a17-primeng:build:development"
+              "buildTarget": "fi-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "poc-a17-primeng:build"
+            "buildTarget": "fi-app:build"
           }
         },
         "test": {
