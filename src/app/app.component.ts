@@ -9,6 +9,7 @@ import { LayoutService, AppConfig } from '../app/services/app.layout.service';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
+  // providers: [PrimeNGConfig, LayoutService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
