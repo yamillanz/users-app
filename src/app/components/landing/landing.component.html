@@ -1,7 +1,7 @@
 <div class="surface-0 flex justify-content-center">
     <div id="home" class="landing-wrapper overflow-hidden">
         <!-- Header -->
-        <div class="py-4 px-3 md:mx-6 lg:mx-8 flex align-items-center justify-content-center lg:static mb-3 sm:justify-content-evenly">
+        <div class="py-4 lg:px-2 justify-content-evenly md:mx-6 lg:mx-8 flex align-items-center lg:justify-content-center lg:static mb-3">
             <a class="flex align-items-center" href="#">
                 <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg"
                     alt="Sakai Logo" height="50" class="mr-0 lg:mr-2"><span
@@ -11,7 +11,7 @@
                 leaveToClass="hidden" [hideOnOutsideClick]="true">
                 <i class="pi pi-bars text-4xl"></i>
             </a>
-            <div class="align-items-center surface-0 flex-grow-1 justify-content-evenly hidden lg:flex absolute lg:static w-full left-0 px-6 lg:px-0 z-2 lg:w-fit sm:justify-content-between"
+            <div class="align-items-center surface-0 flex-grow-1 lg:justify-content-evenly hidden lg:flex absolute lg:static w-full left-0 px-6 lg:px-0 z-2 lg:w-fit sm:justify-content-end "
                 style="top:120px">
                 <ul
                     class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer text-xl">
@@ -42,7 +42,7 @@
                 </ul>
 
             </div>
-            <div class="flex justify-content-center sm:ml-auto">
+            <div class="flex justify-content-center">
                 <!-- <button pButton pRipple label=""
                     class="p-button-text p-button-rounded font-light line-height-2 text-blue-500">Login</button> -->
                 <button pButton pRipple
