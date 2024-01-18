@@ -8,5 +8,9 @@ import { LayoutService } from '../../services/app.layout.service';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent {
+  visible: boolean = false;
   constructor(public layoutService: LayoutService, public router: Router) {}
+  showDialog() : void{
+    this.visible = true;
+  }
 }
