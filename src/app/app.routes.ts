@@ -11,4 +11,8 @@ export const routes: Routes = [
         (m) => m.LandingModule
       ),
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
 ];
