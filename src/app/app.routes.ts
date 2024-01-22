@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { InvoicesListComponent } from './front-office/invoices-list/invoices-list.component';
-import { HomeOfficeComponent } from './front-office/home-office/home-office.component';
 
 export const routes: Routes = [
   {
@@ -24,7 +22,6 @@ export const routes: Routes = [
   },
   {
     path: 'homelogin',
-    // component: HomeOfficeComponent,
     loadComponent() {
       return import('./front-office/home-office/home-office.component').then(
         (m) => m.HomeOfficeComponent
@@ -41,7 +38,6 @@ export const routes: Routes = [
       },
       {
         path: 'invoicies',
-        // component: InvoicesListComponent,
         loadComponent() {
           return import(
             './front-office/invoices-list/invoices-list.component'
