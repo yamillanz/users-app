@@ -12,6 +12,21 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideClientHydration(),
-    provideAnimations()importProvidersFrom(provideFirebaseApp(() => initializeApp({"projectId":"fi-db-9eb45","appId":"1:41426323415:web:e3c68f08ba500994f3ed92","databaseURL":"https://fi-db-9eb45-default-rtdb.firebaseio.com","storageBucket":"fi-db-9eb45.appspot.com","apiKey":"AIzaSyCw6zGEsPGaRR6AI9XnjoUcxVSyrBJZBMY","authDomain":"fi-db-9eb45.firebaseapp.com","messagingSenderId":"41426323415"})))importProvidersFrom(provideAuth(() => getAuth()))importProvidersFrom(provideDatabase(() => getDatabase())),
+    provideAnimations(),
+    importProvidersFrom(
+      provideFirebaseApp(() =>
+        initializeApp({
+          projectId: 'fi-db-9eb45',
+          appId: '1:41426323415:web:e3c68f08ba500994f3ed92',
+          databaseURL: 'https://fi-db-9eb45-default-rtdb.firebaseio.com',
+          storageBucket: 'fi-db-9eb45.appspot.com',
+          apiKey: 'AIzaSyCw6zGEsPGaRR6AI9XnjoUcxVSyrBJZBMY',
+          authDomain: 'fi-db-9eb45.firebaseapp.com',
+          messagingSenderId: '41426323415',
+        })
+      )
+    ),
+    importProvidersFrom(provideAuth(() => getAuth())),
+    importProvidersFrom(provideDatabase(() => getDatabase())),
   ],
 };
