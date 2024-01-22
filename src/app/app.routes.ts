@@ -16,6 +16,13 @@ export const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
-  { path: 'notfound', component: NotfoundComponent },
+  {
+    path: 'notfound',
+    loadComponent() {
+      return import('./shared/notfound/notfound.component').then(
+        (m) => m.NotfoundComponent
+      );
+    },
+  },
   { path: '**', redirectTo: '/notfound' },
 ];
