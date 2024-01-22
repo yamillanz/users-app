@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
-import { NotfoundComponent } from './shared/notfound/notfound.component';
-// import { BlocksComponent } from './components/primeblocks/blocks/blocks.component';
+import { InvoicesListComponent } from './front-office/invoices-list/invoices-list.component';
+import { HomeOfficeComponent } from './front-office/home-office/home-office.component';
 
 export const routes: Routes = [
-  // { path: 'blocks', component: BlocksComponent },
-  // { path: '**', redirectTo: '' },
   {
     path: '',
     loadChildren: () =>
@@ -23,6 +21,34 @@ export const routes: Routes = [
         (m) => m.NotfoundComponent
       );
     },
+  },
+  {
+    path: 'homelogin',
+    // component: HomeOfficeComponent,
+    loadComponent() {
+      return import('./front-office/home-office/home-office.component').then(
+        (m) => m.HomeOfficeComponent
+      );
+    },
+    children: [
+      // {
+      //   path: '',
+      //   loadComponent() {
+      //     return import(
+      //       './front-office/home-office/home-office.component'
+      //     ).then((m) => m.HomeOfficeComponent);
+      //   },
+      // },
+      {
+        path: 'invoicies',
+        component: InvoicesListComponent,
+        // loadComponent() {
+        //   return import(
+        //     './front-office/invoices-list/invoices-list.component'
+        //   ).then((m) => m.InvoicesListComponent);
+        // }
+      },
+    ],
   },
   { path: '**', redirectTo: '/notfound' },
 ];

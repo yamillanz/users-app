@@ -1,12 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-invoices-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './invoices-list.component.html',
-  styleUrl: './invoices-list.component.scss'
+  styleUrl: './invoices-list.component.scss',
 })
-export class InvoicesListComponent {
-
-}
+export class InvoicesListComponent {}
