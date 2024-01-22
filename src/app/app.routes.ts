@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { NotfoundComponent } from './shared/notfound/notfound.component';
 // import { BlocksComponent } from './components/primeblocks/blocks/blocks.component';
 
 export const routes: Routes = [
@@ -15,4 +16,6 @@ export const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+  { path: 'notfound', component: NotfoundComponent },
+  { path: '**', redirectTo: '/notfound' },
 ];
