@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LayoutService } from '../../services/app.layout.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,14 +28,26 @@ export class LoginComponent {
   });
 
   valCheck: string[] = ['remember'];
-
   password!: string;
 
-  constructor(public layoutService: LayoutService) {}
+  layoutService = inject(LayoutService);
+  authService = inject(AuthService);
+  router = inject(Router);
+
+  constructor() {}
 
   onSubmit(e: Event): boolean {
     e.preventDefault();
-    const {email, password} = this.loginForm.value;
+    // const {email, password} = this.loginForm.value;
     return false;
+  }
+
+  async login() {
+    const { email, password } = this.loginForm.value;
+    const logged = await this.authService.signIn(email, password);
+    if (logged) {
+      console.log('logged');
+      this.router.navigate(['/homelogin/bills']);
+    }
   }
 }

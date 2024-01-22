@@ -44,15 +44,17 @@ export class AuthService {
     }
   }
 
-  async signIn(email: string, password: string): Promise<void> {
+  async signIn(email: string, password: string): Promise<boolean> {
     try {
       await signInWithEmailAndPassword(this.auth, email, password);
       this._userIsAuthenticated.set(true);
+      return Promise.resolve(true);
     } catch (error) {
       console.log('error', error);
+      return Promise.resolve(false);
     }
   }
-  
+
   async logout() {
     try {
       await this.auth.signOut();
