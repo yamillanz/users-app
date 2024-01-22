@@ -31,22 +31,22 @@ export const routes: Routes = [
       );
     },
     children: [
-      // {
-      //   path: '',
-      //   loadComponent() {
-      //     return import(
-      //       './front-office/home-office/home-office.component'
-      //     ).then((m) => m.HomeOfficeComponent);
-      //   },
-      // },
+      {
+        path: '',
+        loadComponent() {
+          return import(
+            './front-office/companies-list/companies-list.component'
+          ).then((c) => c.CompaniesListComponent);
+        },
+      },
       {
         path: 'invoicies',
-        component: InvoicesListComponent,
-        // loadComponent() {
-        //   return import(
-        //     './front-office/invoices-list/invoices-list.component'
-        //   ).then((m) => m.InvoicesListComponent);
-        // }
+        // component: InvoicesListComponent,
+        loadComponent() {
+          return import(
+            './front-office/invoices-list/invoices-list.component'
+          ).then((m) => m.InvoicesListComponent);
+        },
       },
     ],
   },
