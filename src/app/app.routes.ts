@@ -37,7 +37,7 @@ export const routes: Routes = [
         },
       },
       {
-        path: 'invoicies',
+        path: 'bills',
         loadComponent() {
           return import(
             './front-office/invoices-list/invoices-list.component'
