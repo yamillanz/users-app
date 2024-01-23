@@ -19,6 +19,9 @@ import { Router } from '@angular/router';
   ],
 })
 export class LoginComponent {
+
+  visibleErrorMessage: boolean = false;
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', [
@@ -43,11 +46,13 @@ export class LoginComponent {
   }
 
   async login() {
+    this.visibleErrorMessage = false;
     const { email, password } = this.loginForm.value;
     const logged = await this.authService.signIn(email, password);
     if (logged) {
       console.log('logged');
       this.router.navigate(['/homelogin/bills']);
     }
+    this.visibleErrorMessage = true;
   }
 }

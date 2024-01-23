@@ -38,3 +38,10 @@
         </div>
     </div>
 </div>
+
+<p-dialog header="Angedemos una cita!" [(visible)]="visibleErrorMessage" [breakpoints]="{ '960px': '75vw' }"
+    [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <p>
+        Algo Salio mal, por favor intentalo de nuevo!. Si el problema persiste, contacta con el administrador.
+    </p>
+</p-dialog>
