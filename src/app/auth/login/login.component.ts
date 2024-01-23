@@ -51,7 +51,7 @@ export class LoginComponent {
     const logged = await this.authService.signIn(email, password);
     if (logged) {
       console.log('logged');
-      this.router.navigate(['/homelogin/bills']);
+      this.router.navigate(['/homelogin']);
     }
     this.visibleErrorMessage = true;
   }

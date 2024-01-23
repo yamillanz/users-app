@@ -9,14 +9,7 @@ import { AuthService } from '../../auth/services/auth.service';
 @Component({
   selector: 'app-home-office',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    CommonModule,
-    AppTopBarComponent,
-    SidebarModule,
-    AppMenuComponent,
-    RouterModule,
-  ],
+  imports: [RouterOutlet, CommonModule, AppTopBarComponent, SidebarModule, AppMenuComponent, RouterModule],
   templateUrl: './home-office.component.html',
   styleUrl: './home-office.component.scss',
 })

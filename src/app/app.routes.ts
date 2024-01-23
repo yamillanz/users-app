@@ -31,16 +31,16 @@ export const routes: Routes = [
     canActivate: [authGuard],
     canActivateChild: [authGuard],
     children: [
+      // {
+      //   path: '',
+      //   loadComponent() {
+      //     return import(
+      //       './front-office/companies-list/companies-list.component'
+      //     ).then((c) => c.CompaniesListComponent);
+      //   },
+      // },
       {
         path: '',
-        loadComponent() {
-          return import(
-            './front-office/companies-list/companies-list.component'
-          ).then((c) => c.CompaniesListComponent);
-        },
-      },
-      {
-        path: 'bills',
         loadComponent() {
           return import(
             './front-office/invoices-list/invoices-list.component'
