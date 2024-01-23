@@ -1,4 +1,5 @@
-<p-table [value]="invoices" [tableStyle]="{'min-width': '50rem'}">
+<p-table [value]="invoices" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="5"
+    [showCurrentPageReport]="false">
     <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
             Facturas
