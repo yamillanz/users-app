@@ -55,4 +55,8 @@ export class LoginComponent {
     }
     this.visibleErrorMessage = true;
   }
+
+  closeErrorMessage() {
+    this.visibleErrorMessage = false;
+  }
 }
