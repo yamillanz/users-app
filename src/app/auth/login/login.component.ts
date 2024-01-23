@@ -19,15 +19,11 @@ import { Router } from '@angular/router';
   ],
 })
 export class LoginComponent {
-
   visibleErrorMessage: boolean = false;
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', Validators.required),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-    ]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
   valCheck: string[] = ['remember'];

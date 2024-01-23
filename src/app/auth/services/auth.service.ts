@@ -32,7 +32,7 @@ export class AuthService {
     return idToken(this.auth);
   }
 
-  constructor(private emailSender: SendEmailService, private router : Router) {}
+  constructor(private emailSender: SendEmailService, private router: Router) {}
 
   async signInWithGoogle(): Promise<void> {
     try {
@@ -68,15 +68,8 @@ export class AuthService {
 
   async signUp(email: string, password: string): Promise<boolean | void> {
     try {
-      const { user } = await createUserWithEmailAndPassword(
-        this.auth,
-        email,
-        password
-      );
-      console.log(
-        '🚀 ~ file: auth.service.ts:48 ~ AuthService ~ signUp ~ user:',
-        user
-      );
+      const { user } = await createUserWithEmailAndPassword(this.auth, email, password);
+      console.log('🚀 ~ file: auth.service.ts:48 ~ AuthService ~ signUp ~ user:', user);
       await this.emailSender.sendEmailWithFirebase(user);
       return true;
     } catch (error) {
