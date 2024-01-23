@@ -10,6 +10,7 @@ import {
 import { signInWithRedirect } from '@firebase/auth';
 import { Observable } from 'rxjs';
 import { SendEmailService } from '../../shared/services/send-email.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +32,7 @@ export class AuthService {
     return idToken(this.auth);
   }
 
-  constructor(private emailSender: SendEmailService) {}
+  constructor(private emailSender: SendEmailService, private router : Router) {}
 
   async signInWithGoogle(): Promise<void> {
     try {
@@ -62,6 +63,7 @@ export class AuthService {
     } catch (error) {
       console.log('error', error);
     }
+    this.router.navigate(['/login']);
   }
 
   async signUp(email: string, password: string): Promise<boolean | void> {
