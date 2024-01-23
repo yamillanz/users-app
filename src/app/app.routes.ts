@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './shared/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,8 @@ export const routes: Routes = [
         (m) => m.HomeOfficeComponent
       );
     },
+    canActivate: [authGuard],
+    canActivateChild: [authGuard],
     children: [
       {
         path: '',
@@ -43,6 +46,7 @@ export const routes: Routes = [
             './front-office/invoices-list/invoices-list.component'
           ).then((m) => m.InvoicesListComponent);
         },
+        canActivate: [authGuard],
       },
     ],
   },

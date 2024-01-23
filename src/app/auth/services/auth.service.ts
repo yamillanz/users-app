@@ -24,7 +24,7 @@ export class AuthService {
     return this._userIsAuthenticated;
   }
 
-  get useState$(): Observable<any> {
+  get userState$(): Observable<any> {
     return authState(this.auth);
   }
 

@@ -2,6 +2,10 @@
     <app-topbar></app-topbar>
     <div class="layout-main-container">
         <div class="layout-main p-2">
+            Algo
+            <pre>{{ authService.userState$ | async | json }}</pre>
+
+
             <router-outlet></router-outlet>
         </div>
         <!-- <app-footer></app-footer> -->

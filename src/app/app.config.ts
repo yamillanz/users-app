@@ -7,9 +7,12 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { authGuard } from './shared/guards/auth.guard';
+// import { authGuard } from './shared/guards/auth.guard';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    
     provideRouter(routes),
     provideClientHydration(),
     provideAnimations(),
@@ -28,5 +31,6 @@ export const appConfig: ApplicationConfig = {
     ),
     importProvidersFrom(provideAuth(() => getAuth())),
     importProvidersFrom(provideDatabase(() => getDatabase())),
+    // { provide: 'authGuard', useValue: authGuard },
   ],
 };
