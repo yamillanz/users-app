@@ -1,7 +1,7 @@
 <p-table [value]="companies" [tableStyle]="{'min-width': '50rem'}">
     <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
-            Compañias
+            <span class="text-xl">Compañias</span>
             <p-button icon="pi pi-refresh"></p-button>
         </div>
     </ng-template>
@@ -11,18 +11,27 @@
             <th>Rif</th>
             <th>Dirección</th>
             <th>Telefono</th>
+            <th class="w-5rem">&nbsp;</th>
             <!-- <th>Status</th> -->
             <!-- <th>Reviews</th> -->
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product let-columns="columns">
+    <ng-template pTemplate="body" let-company let-columns="columns">
         <tr>
-            <td>{{product.name}}</td>
-            <td>{{product.rif}}</td>
-            <td>{{product.address}}</td>
-            <td>{{product.phone}}</td>
-            <!-- <td><p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag></td>
-            <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
+            <td>{{company.name}}</td>
+            <td>{{company.rif}}</td>
+            <td>{{company.address}}</td>
+            <td>{{company.phone}}</td>
+            <td class="w-5rem">
+                <div class="flex align-items-center justify-content-end gap-2">
+                    <button *ngIf="!editing" pButton pRipple type="button" icon="pi pi-pencil"
+                        (click)="onRowEditInit(company)" class="p-button-rounded p-button-text"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-danger"
+                        (click)="deleteSelectedProducts(company)"></button>
+                    <!-- <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(company)" class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(company, ri)" class="p-button-rounded p-button-text p-button-danger"></button> -->
+                </div>
+            </td>
         </tr>
     </ng-template>
 </p-table>

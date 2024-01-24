@@ -43,4 +43,9 @@ export class CompaniesListComponent {
       phone: '9012345678',
     },
   ];
+
+  editing: boolean = false;
+
+  onRowEditInit(company : any) {}
+  deleteSelectedProducts(company : any) {}
 }

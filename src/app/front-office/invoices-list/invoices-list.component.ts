@@ -84,4 +84,6 @@ export class InvoicesListComponent {
       address: 'Calle 124 con 45',
     },
   ];
+
+  deleteSelectedInvoice(invoice: any) {}
 }
