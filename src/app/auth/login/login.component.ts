@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LayoutService } from '../../services/app.layout.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +19,40 @@ import { LayoutService } from '../../services/app.layout.service';
   ],
 })
 export class LoginComponent {
-  valCheck: string[] = ['remember'];
+  visibleErrorMessage: boolean = false;
 
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+  });
+
+  valCheck: string[] = ['remember'];
   password!: string;
 
-  constructor(public layoutService: LayoutService) {}
+  layoutService = inject(LayoutService);
+  authService = inject(AuthService);
+  router = inject(Router);
+
+  constructor() {}
+
+  onSubmit(e: Event): boolean {
+    e.preventDefault();
+    // const {email, password} = this.loginForm.value;
+    return false;
+  }
+
+  async login() {
+    this.visibleErrorMessage = false;
+    const { email, password } = this.loginForm.value;
+    const logged = await this.authService.signIn(email, password);
+    if (logged) {
+      console.log('logged');
+      this.router.navigate(['/homelogin']);
+    }
+    this.visibleErrorMessage = true;
+  }
+
+  closeErrorMessage() {
+    this.visibleErrorMessage = false;
+  }
 }

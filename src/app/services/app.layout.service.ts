@@ -41,47 +41,47 @@ export class LayoutService {
     menuHoverActive: false,
   };
 
-//   private configUpdate = new Subject<AppConfig>();
+  //   private configUpdate = new Subject<AppConfig>();
 
-//   private overlayOpen = new Subject<any>();
+  //   private overlayOpen = new Subject<any>();
 
-//   configUpdate$ = this.configUpdate.asObservable();
+  //   configUpdate$ = this.configUpdate.asObservable();
 
-//   overlayOpen$ = this.overlayOpen.asObservable();
+  //   overlayOpen$ = this.overlayOpen.asObservable();
 
-//   private menuHoverActive = new BehaviorSubject<boolean>(false);
+  //   private menuHoverActive = new BehaviorSubject<boolean>(false);
   private menuHoverActiveSignal: WritableSignal<boolean> = signal(false);
 
-//   onMenuToggle() {
-//     if (this.isOverlay()) {
-//       this.state.overlayMenuActive = !this.state.overlayMenuActive;
-//       console.log('onMenuToggle', this.state.overlayMenuActive);
-//       if (this.state.overlayMenuActive) {
-//         this.overlayOpen.next(null);
-//       }
-//     }
+  //   onMenuToggle() {
+  //     if (this.isOverlay()) {
+  //       this.state.overlayMenuActive = !this.state.overlayMenuActive;
+  //       console.log('onMenuToggle', this.state.overlayMenuActive);
+  //       if (this.state.overlayMenuActive) {
+  //         this.overlayOpen.next(null);
+  //       }
+  //     }
 
-//     if (this.isDesktop()) {
-//       this.state.staticMenuDesktopInactive =
-//         !this.state.staticMenuDesktopInactive;
-//     } else {
-//       this.state.staticMenuMobileActive = !this.state.staticMenuMobileActive;
+  //     if (this.isDesktop()) {
+  //       this.state.staticMenuDesktopInactive =
+  //         !this.state.staticMenuDesktopInactive;
+  //     } else {
+  //       this.state.staticMenuMobileActive = !this.state.staticMenuMobileActive;
 
-//       if (this.state.staticMenuMobileActive) {
-//         this.overlayOpen.next(null);
-//       }
-//     }
-//   }
+  //       if (this.state.staticMenuMobileActive) {
+  //         this.overlayOpen.next(null);
+  //       }
+  //     }
+  //   }
 
-//   onMenuHover() {
-//     this.menuHoverActive.next(!this.menuHoverActive.value);
-//   }
-//   showMenuHoverActive() {
-//     this.menuHoverActive.next(true);
-//   }
-//   get isMenuHoverActive() {
-//     return this.menuHoverActive.asObservable();
-//   }
+  //   onMenuHover() {
+  //     this.menuHoverActive.next(!this.menuHoverActive.value);
+  //   }
+  //   showMenuHoverActive() {
+  //     this.menuHoverActive.next(true);
+  //   }
+  //   get isMenuHoverActive() {
+  //     return this.menuHoverActive.asObservable();
+  //   }
 
   get ismenuHoverActiveSignal() {
     return this.menuHoverActiveSignal;
@@ -91,12 +91,16 @@ export class LayoutService {
     this.menuHoverActiveSignal.set(true);
   }
 
-//   showProfileSidebar() {
-//     this.state.profileSidebarVisible = !this.state.profileSidebarVisible;
-//     if (this.state.profileSidebarVisible) {
-//       this.overlayOpen.next(null);
-//     }
-//   }
+  showMenuProfile() {
+    this.menuHoverActiveSignal.set(false);
+  }
+
+  //   showProfileSidebar() {
+  //     this.state.profileSidebarVisible = !this.state.profileSidebarVisible;
+  //     if (this.state.profileSidebarVisible) {
+  //       this.overlayOpen.next(null);
+  //     }
+  //   }
 
   showConfigSidebar() {
     this.state.configSidebarVisible = true;
@@ -114,7 +118,7 @@ export class LayoutService {
     return !this.isDesktop();
   }
 
-//   onConfigUpdate() {
-//     this.configUpdate.next(this.config);
-//   }
+  //   onConfigUpdate() {
+  //     this.configUpdate.next(this.config);
+  //   }
 }

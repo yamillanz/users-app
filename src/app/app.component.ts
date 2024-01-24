@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { LayoutService, AppConfig } from '../app/services/app.layout.service';
+// import { authGuard } from './shared/guards/auth.guard';
 // import { PrimeBlocksModule } from './components/primeblocks/primeblocks.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
-  providers: [LayoutService],
+  providers: [LayoutService,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
