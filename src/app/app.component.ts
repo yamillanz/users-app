@@ -10,7 +10,7 @@ import { LayoutService, AppConfig } from '../app/services/app.layout.service';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
-  providers: [LayoutService,],
+  providers: [LayoutService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       scale: 14,
     };
     this.primengConfig.ripple = true;
-    this.layoutService.config = config;
+    // this.layoutService.config = config;
   }
   title = 'fi-app';
 }

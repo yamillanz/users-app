@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { LayoutService } from '../../services/app.layout.service';
+// import { LayoutService } from '../../services/app.layout.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -29,7 +29,7 @@ export class LoginComponent {
   valCheck: string[] = ['remember'];
   password!: string;
 
-  layoutService = inject(LayoutService);
+  // layoutService = inject(LayoutService);
   authService = inject(AuthService);
   router = inject(Router);
 
