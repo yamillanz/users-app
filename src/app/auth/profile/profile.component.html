@@ -1,0 +1,33 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit($event)">
+  <div class="p-field">
+    <label for="name">Name</label>
+    <input id="name" type="text" pInputText formControlName="name">
+  </div>
+
+  <div class="p-field">
+    <label for="last_name">Last Name</label>
+    <input id="last_name" type="text" pInputText formControlName="last_name">
+  </div>
+
+  <div class="p-field">
+    <label for="email">Email</label>
+    <input id="email" type="email" pInputText formControlName="email">
+  </div>
+
+  <div class="p-field">
+    <label for="password">Password</label>
+    <input id="password" type="password" pInputText formControlName="password">
+  </div>
+
+  <div class="p-field">
+    <label for="user_id">UserName</label>
+    <input id="user_id" type="text" pInputText formControlName="user_id">
+  </div>
+
+  <div class="p-field">
+    <label for="create_time">Create Time</label>
+    <!-- <p-calendar id="create_time" [showIcon]="true" formControlName="create_time"></p-calendar> -->
+  </div>
+
+  <p-button type="submit" label="Submit"></p-button>
+</form>
