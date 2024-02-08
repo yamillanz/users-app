@@ -1,33 +1,56 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit($event)">
-  <div class="p-field">
-    <label for="name">Name</label>
-    <input id="name" type="text" pInputText formControlName="name">
-  </div>
+<div class="width-100 py-4">
+  <div class="flex flex-column align-items-center justify-content-center">
+    <img src="assets/layout/images/logo-white.svg" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0">
+    <div
+      style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+      <div class="surface-card py-8 px-4 lg:w-30rem" style="border-radius:53px;">
+        <div class="text-center mb-5">
+          <div class="text-900 text-3xl font-medium mb-3">Tu profile</div>
+        </div>
 
-  <div class="p-field">
-    <label for="last_name">Last Name</label>
-    <input id="last_name" type="text" pInputText formControlName="last_name">
-  </div>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit($event)" class="w-full">
+          <div class="p-field py-3 flex justify-content-between">
+            <label for="user_id">UserName</label>
+            <input id="user_id" type="text" pInputText formControlName="user_id">
+          </div>
 
-  <div class="p-field">
-    <label for="email">Email</label>
-    <input id="email" type="email" pInputText formControlName="email">
-  </div>
+          <div class="p-field py-3 flex justify-content-between">
+            <label for="email">Email</label>
+            <input id="email" type="email" pInputText formControlName="email">
+          </div>
 
-  <div class="p-field">
-    <label for="password">Password</label>
-    <input id="password" type="password" pInputText formControlName="password">
-  </div>
+          <div class="p-field py-3 flex justify-content-between">
+            <label for="password">Password</label>
+            <input id="password" type="password" pInputText formControlName="password">
+          </div>
 
-  <div class="p-field">
-    <label for="user_id">UserName</label>
-    <input id="user_id" type="text" pInputText formControlName="user_id">
-  </div>
+          <div class="p-field w-full py-3 flex justify-content-between">
+            <label for="name">Name</label>
+            <input id="name" type="text" pInputText formControlName="name">
+          </div>
 
-  <div class="p-field">
-    <label for="create_time">Create Time</label>
-    <!-- <p-calendar id="create_time" [showIcon]="true" formControlName="create_time"></p-calendar> -->
-  </div>
+          <div class="p-field py-3 flex justify-content-between">
+            <label for="last_name">Last Name</label>
+            <input id="last_name" type="text" pInputText formControlName="last_name">
+          </div>
 
-  <p-button type="submit" label="Submit"></p-button>
-</form>
+          <div class="p-field py-3 flex justify-content-between">
+            <label for="create_time">Create Time</label>
+            <!-- <p-calendar id="create_time" [showIcon]="true" formControlName="create_time"></p-calendar> -->
+          </div>
+          <div class="flex justify-content-end">
+            <p-button type="submit" label="Modificar"></p-button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="p-grid p-justify-center">
+
+</div>

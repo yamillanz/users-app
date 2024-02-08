@@ -1,4 +1,5 @@
 export default interface UserBase {
+  id?: number;
   name: string;
   last_name: string;
   password: string;
@@ -7,7 +8,7 @@ export default interface UserBase {
   create_time?: Date;
 }
 
-export interface UserLogin extends Pick<UserBase, 'email' | 'password'> {}
+export interface UserLogin extends Pick<UserBase, 'email' | 'user_id' | 'password'> {}
 export interface UserLogged extends Pick<UserBase, 'email' | 'user_id'> {
   id: number;
 }

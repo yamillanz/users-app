@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Observable, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -44,12 +45,31 @@ export class LoginComponent {
   async login() {
     this.visibleErrorMessage = false;
     const { email, password } = this.loginForm.value;
-    const logged = await this.authService.signIn(email, password);
-    if (logged) {
-      console.log('logged');
-      this.router.navigate(['/homelogin']);
-    }
-    this.visibleErrorMessage = true;
+    // const logged = await this.authService.signIn(email, password);
+    this.authService
+      .signIn(email, password)
+      .pipe(
+        // catchError((error) => {
+        //   console.log('error', error);
+        //   this.visibleErrorMessage = true;
+        //   return error;
+        // }),
+      )
+      .subscribe((res) => {
+        console.log('🚀 ~ file: login.component.ts ~ line 78 ~ LoginComponent ~ this.authService.signIn ~ res', res);
+        if (res.error) {
+          this.visibleErrorMessage = true;
+        }
+        if (res.access_token) {
+          this.router.navigate(['/profile']);
+        }
+      });
+
+    // if (logged) {
+    //   console.log('logged');
+    //   this.router.navigate(['/profile']);
+    // }
+    // this.visibleErrorMessage = true;
   }
 
   closeErrorMessage() {
