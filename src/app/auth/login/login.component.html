@@ -40,21 +40,13 @@
     </div>
 </div>
 
-<!-- <p-dialog header="Error!" [(visible)]="visibleErrorMessage" [breakpoints]="{ '960px': '75vw' }"
-    [style]="{ width: '50vw'}" [draggable]="false" [resizable]="false" [contentStyle]="{'background-color': 'orangered'}">
-    <p>
-        Algo Salio mal, por favor intentalo de nuevo!. Si el problema persiste, contacta con el administrador.
-    </p>
-</p-dialog> -->
-
 <p-dialog [(visible)]="visibleErrorMessage">
     <ng-template pTemplate="headless">
         <div class="flex flex-column px-8 py-5 gap-4 justify-content-center align-items-center"
             style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
 
             <p class="text-xl text-black-alpha-90">
-                Error!. Algo Salio mal, por favor intentalo de nuevo!. Si el problema persiste, contacta con el
-                administrador.
+              Nombre de usuario o contraseña incorrectos!. Contacta al administrador.
             </p>
             <p-button label="Cerrar Mensaje" (click)="closeErrorMessage()" [text]="true"
                 styleClass="w-full text-primary-50 border-3 border-white-alpha-70 hover:bg-white-alpha-10"

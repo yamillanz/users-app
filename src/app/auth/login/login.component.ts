@@ -46,24 +46,15 @@ export class LoginComponent {
     this.visibleErrorMessage = false;
     const { email, password } = this.loginForm.value;
     // const logged = await this.authService.signIn(email, password);
-    this.authService
-      .signIn(email, password)
-      .pipe(
-        // catchError((error) => {
-        //   console.log('error', error);
-        //   this.visibleErrorMessage = true;
-        //   return error;
-        // }),
-      )
-      .subscribe((res) => {
-        console.log('🚀 ~ file: login.component.ts ~ line 78 ~ LoginComponent ~ this.authService.signIn ~ res', res);
-        if (res.error) {
-          this.visibleErrorMessage = true;
-        }
-        if (res.access_token) {
-          this.router.navigate(['/profile']);
-        }
-      });
+    this.authService.signIn(email, password).subscribe((res) => {
+      console.log('🚀 ~ file: login.component.ts ~ line 78 ~ LoginComponent ~ this.authService.signIn ~ res', res);
+      if (res.error) {
+        this.visibleErrorMessage = true;
+      }
+      if (res.access_token) {
+        this.router.navigate(['/profile']);
+      }
+    });
 
     // if (logged) {
     //   console.log('logged');

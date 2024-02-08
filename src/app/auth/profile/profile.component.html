@@ -20,7 +20,7 @@
           </div>
 
           <div class="p-field py-3 flex justify-content-between">
-            <label for="password">Password</label>
+            <label for="password">Change Password</label>
             <input id="password" type="password" pInputText formControlName="password">
           </div>
 
@@ -36,9 +36,11 @@
 
           <div class="p-field py-3 flex justify-content-between">
             <label for="create_time">Create Time</label>
+            {{this.user.create_time ?? '' | date:'dd/MM/yyyy'}}
             <!-- <p-calendar id="create_time" [showIcon]="true" formControlName="create_time"></p-calendar> -->
           </div>
-          <div class="flex justify-content-end">
+          <div class="flex justify-content-between pt-6">
+            <p-button label="Salir" (onClick)="logout()"></p-button>
             <p-button type="submit" label="Modificar"></p-button>
           </div>
         </form>
@@ -48,9 +50,31 @@
   </div>
 </div>
 
+<p-dialog [(visible)]="visibleErrorMessage">
+  <ng-template pTemplate="headless">
+    <div class="flex flex-column px-8 py-5 gap-4 justify-content-center align-items-center"
+      style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
 
+      <p class="text-xl text-black-alpha-90">
+        <span class="font-bold">Error</span>: {{this.errorMessage}}
+      </p>
+      <p-button label="Cerrar Mensaje" (click)="closeErrorMessage()" [text]="true"
+        styleClass="w-full text-primary-50 border-3 border-white-alpha-70 hover:bg-white-alpha-10"
+        class="w-15rem"></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
 
+<p-dialog [(visible)]="visibleSuccessMessage">
+  <ng-template pTemplate="headless">
+    <div class="flex flex-column px-8 py-5 gap-4 justify-content-center align-items-center"
+      style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
 
-<div class="p-grid p-justify-center">
-
-</div>
+      <p class="text-xl text-black-alpha-90">
+        <span class="font-bold">Exito</span>: {{this.successMessage}}
+      </p>
+      <p-button label="Cerrar Mensaje" (click)="closeErrorMessage()" [text]="true"
+        styleClass="w-full text-primary-50 border-3 border-white-alpha-70 hover:bg-white-alpha-10"
+        class="w-15rem"></p-button>
+    </div>
+  </ng-template>
