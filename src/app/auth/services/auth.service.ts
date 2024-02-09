@@ -34,7 +34,6 @@ export class AuthService {
     // try {
     return this.http.post(environment.URL_API + '/login', { username: email, password }).pipe(
       tap((res: any) => {
-        console.log('🚀 ~ file: auth.service.ts:52 ~ AuthService ~ this.http.post ~ res', res);
         if (res.access_token) {
           const decodedToken = jwtDecode(res.access_token);
           console.log('🚀 ~ AuthService ~ .subscribe ~ decodedToken:', decodedToken);
@@ -50,12 +49,8 @@ export class AuthService {
   }
 
   async logout() {
-    try {
-      // await this.auth.signOut();
-      this._userIsAuthenticated.set(false);
-    } catch (error) {
-      console.log('error', error);
-    }
-    this.router.navigate(['/login']);
+    this._userState$.next(null);
+    this._userIsAuthenticated.set(false);
+    this.router.navigate(['']);
   }
 }
