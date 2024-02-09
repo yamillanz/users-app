@@ -84,7 +84,6 @@ export class ProfileComponent implements OnInit {
       }
       this.successMessage = 'User updated successfully';
       if (!this.userForm.value.password) {
-        console.log('que hay', this.userForm.value.password);
         this.successMessage = 'User updated successfully, but the password was not updated';
       }
       this.visibleSuccessMessage = true;

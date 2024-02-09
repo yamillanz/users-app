@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
   async login() {
     this.visibleErrorMessage = false;
     const { email, password } = this.loginForm.value;
-    // const logged = await this.authService.signIn(email, password);
     this.authService.signIn(email, password).subscribe((res) => {
       console.log('🚀 ~ file: login.component.ts ~ line 78 ~ LoginComponent ~ this.authService.signIn ~ res', res);
       if (res.error) {
