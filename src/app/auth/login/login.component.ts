@@ -1,9 +1,8 @@
-import { Component, inject } from '@angular/core';
-// import { LayoutService } from '../../services/app.layout.service';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { Observable, catchError } from 'rxjs';
+import { UsersService } from '../../users/users.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +18,7 @@ import { Observable, catchError } from 'rxjs';
     `,
   ],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   visibleErrorMessage: boolean = false;
 
   loginForm: FormGroup = new FormGroup({
@@ -30,15 +29,14 @@ export class LoginComponent {
   valCheck: string[] = ['remember'];
   password!: string;
 
-  // layoutService = inject(LayoutService);
   authService = inject(AuthService);
   router = inject(Router);
+  userService = inject(UsersService);
 
   constructor() {}
 
   onSubmit(e: Event): boolean {
     e.preventDefault();
-    // const {email, password} = this.loginForm.value;
     return false;
   }
 
@@ -55,12 +53,12 @@ export class LoginComponent {
         this.router.navigate(['/profile']);
       }
     });
+  }
 
-    // if (logged) {
-    //   console.log('logged');
-    //   this.router.navigate(['/profile']);
-    // }
-    // this.visibleErrorMessage = true;
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe((res) => {
+      console.log('fetching users for awaiking', res.toLocaleString());
+    });
   }
 
   closeErrorMessage() {
