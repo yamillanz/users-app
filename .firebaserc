@@ -1,14 +1,5 @@
 {
   "projects": {
-    "default": "fi-db-9eb45"
-  },
-  "targets": {
-    "fi-db-9eb45": {
-      "hosting": {
-        "fi-app": [
-          "fi-db-9eb45"
-        ]
-      }
-    }
+    "default": "users-app-8fe33"
   }
 }

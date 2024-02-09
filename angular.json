@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fi-app": {
+    "users-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/fi-app",
+            "outputPath": "dist/users-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "fi-app:build:production"
+              "buildTarget": "users-app:build:production"
             },
             "development": {
-              "buildTarget": "fi-app:build:development"
+              "buildTarget": "users-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "fi-app:build"
+            "buildTarget": "users-app:build"
           }
         },
         "test": {
@@ -113,12 +113,12 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "fi-app:build:production",
-              "serveTarget": "fi-app:serve:production"
+              "buildTarget": "users-app:build:production",
+              "serveTarget": "users-app:serve:production"
             },
             "development": {
-              "buildTarget": "fi-app:build:development",
-              "serveTarget": "fi-app:serve:development"
+              "buildTarget": "users-app:build:development",
+              "serveTarget": "users-app:serve:development"
             }
           },
           "defaultConfiguration": "production"

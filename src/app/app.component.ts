@@ -30,5 +30,5 @@ export class AppComponent implements OnInit {
     this.primengConfig.ripple = true;
     // this.layoutService.config = config;
   }
-  title = 'fi-app';
+  title = 'users-app';
 }
