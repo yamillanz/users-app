@@ -45,6 +45,17 @@ export class ProfileComponent implements OnInit {
         this.router.navigate(['']);
         return;
       }
+
+      this.getUserDataAndFillForm();
+    });
+  }
+
+  getUserDataAndFillForm() {
+    this.authService.userState$.pipe(first()).subscribe(async (user) => {
+      if (!user) {
+        this.router.navigate(['']);
+        return;
+      }
       this.user = (await firstValueFrom(this.usersService.getUser(user.id))) as UserBase;
       this.userForm.setValue({
         name: this.user.name,
@@ -78,8 +89,8 @@ export class ProfileComponent implements OnInit {
       }
       this.visibleSuccessMessage = true;
       this.visibleErrorMessage = false;
+      this.getUserDataAndFillForm();
     });
-    // this.router.navigate(['/']);
     return false;
   }
 
