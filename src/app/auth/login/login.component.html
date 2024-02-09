@@ -59,3 +59,18 @@
         </div>
     </ng-template>
 </p-dialog>
+
+<p-dialog [(visible)]="invalidForm">
+    <ng-template pTemplate="headless">
+        <div class="flex flex-column px-8 py-5 gap-4 justify-content-center align-items-center"
+            style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
+
+            <p class="text-xl text-black-alpha-90">
+                Por favor, llena los campos requeridos.
+            </p>
+            <p-button label="Cerrar Mensaje" (click)="closeErrorMessage()" [text]="true"
+                styleClass="w-full text-primary-50 border-3 border-white-alpha-70 hover:bg-white-alpha-10"
+                class="w-15rem"></p-button>
+        </div>
+    </ng-template>
+</p-dialog>

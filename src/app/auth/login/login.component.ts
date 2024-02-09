@@ -20,6 +20,7 @@ import { UsersService } from '../../users/users.service';
 })
 export class LoginComponent implements OnInit {
   visibleErrorMessage: boolean = false;
+  invalidForm: boolean = false;
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -42,6 +43,11 @@ export class LoginComponent implements OnInit {
 
   async login() {
     this.visibleErrorMessage = false;
+    this.invalidForm = false;
+    if (this.loginForm.invalid) {
+      this.invalidForm = true;
+      return;
+    }
     const { email, password } = this.loginForm.value;
     this.authService.signIn(email, password).subscribe((res) => {
       console.log('🚀 ~ file: login.component.ts ~ line 78 ~ LoginComponent ~ this.authService.signIn ~ res', res);
@@ -55,6 +61,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.userService.getUsers().subscribe((res) => {
       console.log('fetching users for awaiking', res.toLocaleString());
     });
@@ -62,5 +69,6 @@ export class LoginComponent implements OnInit {
 
   closeErrorMessage() {
     this.visibleErrorMessage = false;
+    this.invalidForm = false;
   }
 }
